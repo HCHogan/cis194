@@ -1,7 +1,7 @@
 module Main (main) where
 
-import Lib
 import Data.List (foldl')
+import Hw4 (foldTree)
 
 sumtorial 0 = 0
 sumtorial n = n + sumtorial (n - 1)
@@ -36,6 +36,7 @@ safeDivide x y z = do
 main :: IO ()
 -- main = print (safeDivide 10 2 0)
 main = do
+  putStrLn $ show $ foldTree "ABCDEFGHIJ"
   putStrLn "Starting..."
   putStr "Enter a number: "
   numStr <- getLine
@@ -60,5 +61,4 @@ length' :: [a] -> Int
 length' [] = 0
 length' (_ : xs) = 1 + length' xs
 
-_ = foldl' (const (1 +)) 0 [1,2]
-
+_ = foldl' (const (1 +)) 0 [1, 2]
