@@ -40,4 +40,18 @@ map' f = foldr (\x acc -> f x : acc) []
 
 -- Implement foldl using foldr
 myFoldl :: (a -> b -> a) -> a -> [b] -> a
-myFoldl f base xs = foldr (\b g a -> g (f a b)) id xs base
+-- myFoldl f base xs = foldr (\b g a -> g (f a b)) id xs base
+myFoldl f x = foldr (flip f) x . reverse
+
+data Foo' = F' Int | G' Char
+  deriving (Eq, Ord, Show)
+
+class Eq' a where
+  eq :: a -> a -> Bool
+  neq :: a -> a -> Bool
+  neq x y = not $ eq x y
+
+instance Eq' Foo' where
+  eq (F' x) (F' y) = x == y
+  eq (G' x) (G' y) = x == y
+  eq _ _ = False

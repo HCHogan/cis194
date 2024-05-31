@@ -26,7 +26,9 @@ source-repository head
 library
   exposed-modules:
       Hw4
+      Hw5
       Lib
+      T4
   other-modules:
       Paths_cis194
   autogen-modules:
