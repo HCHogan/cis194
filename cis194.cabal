@@ -25,9 +25,12 @@ source-repository head
 
 library
   exposed-modules:
+      ExprT
       Hw4
       Hw5
       Lib
+      Parser
+      StackVM
       T4
   other-modules:
       Paths_cis194
