@@ -32,6 +32,7 @@ library
       Parser
       StackVM
       T4
+      T6
   other-modules:
       Paths_cis194
   autogen-modules:

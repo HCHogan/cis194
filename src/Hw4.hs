@@ -1,11 +1,12 @@
-module Hw4 (
-  fun1,
-  fun2,
-  foldTree,
-  xor,
-  map',
-  myFoldl,
-) where
+module Hw4
+  ( fun1,
+    fun2,
+    foldTree,
+    xor,
+    map',
+    myFoldl,
+  )
+where
 
 -- 1
 fun1 :: [Integer] -> Integer
@@ -22,14 +23,14 @@ data Tree a
 
 foldTree :: [a] -> Tree a
 foldTree = foldr insertNode Leaf
- where
-  insertNode x Leaf = Node 0 Leaf x Leaf
-  insertNode x (Node _ left val right)
-    | height left <= height right = let newLeft = insertNode x left in Node (height newLeft + 1) newLeft val right
-    | otherwise = let newRight = insertNode x right in Node (height newRight + 1) left val newRight
-   where
-    height Leaf = 0
-    height (Node h _ _ _) = h
+  where
+    insertNode x Leaf = Node 0 Leaf x Leaf
+    insertNode x (Node _ left val right)
+      | height left <= height right = let newLeft = insertNode x left in Node (height newLeft + 1) newLeft val right
+      | otherwise = let newRight = insertNode x right in Node (height newRight + 1) left val newRight
+      where
+        height Leaf = 0
+        height (Node h _ _ _) = h
 
 -- 3
 xor :: [Bool] -> Bool
