@@ -3,6 +3,7 @@ module Main (main) where
 import Data.List (foldl')
 import Hw4 (foldTree)
 import T6 (fuck)
+import Hw6 (test1)
 
 sumtorial 0 = 0
 sumtorial n = n + sumtorial (n - 1)
@@ -38,6 +39,7 @@ main :: IO ()
 -- main = print (safeDivide 10 2 0)
 main = do
   fuck
+  test1
   putStrLn $ show $ foldTree "ABCDEFGHIJ"
   putStrLn "Starting..."
   putStr "Enter a number: "
