@@ -30,11 +30,19 @@ library
       Hw4
       Hw5
       Hw6
+      Hw7
+      Hw7.Buffer
+      Hw7.Editor
+      Hw7.JoinList
+      Hw7.Scrabble
+      Hw7.Sized
+      Hw7.StringBuffer
       Lib
       Parser
       StackVM
       T4
       T6
+      T7
   other-modules:
       Paths_cis194
   autogen-modules:
