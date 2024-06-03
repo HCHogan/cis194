@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -Wno-unused-top-binds #-}
 {-# OPTIONS_GHC -fno-warn-missing-methods #-}
 
-module Hw6 (fib, fibs1, fibs2, streamToList, streamRepeat, streamMap, streamFromSeed, test1) where
+module Hw6 (fib, fibs1, fibs2, streamToList, streamRepeat, streamMap, streamFromSeed, test1, test2) where
 
 import Prelude hiding ((/))
 
@@ -29,7 +29,7 @@ show s = show' 20 s
  where
   show' n (Stream a s)
     | n == 0 = ""
-    | otherwise = Prelude.show a ++ show' (n - 1) s
+    | otherwise = Prelude.show a ++ [' '] ++ show' (n - 1) s
 
 streamRepeat :: a -> Stream a
 streamRepeat x = Stream x $ streamRepeat x
@@ -72,3 +72,7 @@ test1 = do
   putStrLn $ Hw6.show $ x ^ 4
   putStrLn $ Hw6.show $ (1 + x) ^ 5
   putStrLn $ Hw6.show $ (x ^ 2 + x + 3) * (x - 5)
+
+test2 :: IO ()
+test2 = do
+  putStrLn $ Hw6.show fibs3

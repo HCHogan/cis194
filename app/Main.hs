@@ -2,8 +2,8 @@ module Main (main) where
 
 import Data.List (foldl')
 import Hw4 (foldTree)
+import Hw6 (test1, test2)
 import T6 (fuck)
-import Hw6 (test1)
 
 sumtorial 0 = 0
 sumtorial n = n + sumtorial (n - 1)
@@ -40,6 +40,7 @@ main :: IO ()
 main = do
   fuck
   test1
+  test2
   putStrLn $ show $ foldTree "ABCDEFGHIJ"
   putStrLn "Starting..."
   putStr "Enter a number: "
@@ -66,5 +67,3 @@ length' [] = 0
 length' (_ : xs) = 1 + length' xs
 
 _ = foldl' (const (1 +)) 0 [1, 2]
-
-
