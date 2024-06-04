@@ -16,6 +16,8 @@ import Control.Arrow       (first, second)
 import Data.Char
 import Data.List
 
+import Control.Monad
+
 -- Editor commands
 
 data Command = View
@@ -35,7 +37,7 @@ commands = map show [View, Edit, Next, Prev, Quit]
 -- Editor monad
 
 newtype Editor b a = Editor (StateT (b,Int) IO a)
-  deriving (Functor, Monad, MonadIO, MonadState (b,Int))
+  deriving (Functor, Applicative, Monad, MonadIO, MonadState (b,Int))
 
 runEditor :: Buffer b => Editor b a -> b -> IO a
 runEditor (Editor e) b = evalStateT e (b,0)

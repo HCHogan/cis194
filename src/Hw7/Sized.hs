@@ -1,4 +1,6 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Hw7.Sized where
 
 import Data.Monoid
@@ -20,9 +22,11 @@ instance Sized Size where
 --   (Foo, (Bar, Size))
 --   ...
 -- are all instances of Sized.
-instance Sized b => Sized (a,b) where
+instance (Sized b) => Sized (a, b) where
   size = size . snd
 
+instance Semigroup Size where
+  (Size a) <> (Size b) = Size (a + b)
+
 instance Monoid Size where
-  mempty  = Size 0
-  mappend = (+)
+  mempty = Size 0
