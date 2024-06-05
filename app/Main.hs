@@ -5,6 +5,7 @@ import Hw4 (foldTree)
 import Hw6 (test1, test2)
 import T6 (fuck)
 import Hw7 (hw7Main)
+import Hw8.Party (hw8Main)
 
 sumtorial 0 = 0
 sumtorial n = n + sumtorial (n - 1)
@@ -36,22 +37,12 @@ safeDivide x y z = do
   b <- divide a z
   return b
 
-oldMain :: IO ()
--- main = print (safeDivide 10 2 0)
-oldMain = do
-  fuck
-  test1
-  test2
-  putStrLn $ show $ foldTree "ABCDEFGHIJ"
-  putStrLn "Starting..."
-  putStr "Enter a number: "
-  numStr <- getLine
-  let num = read numStr :: Int
-  putStrLn ("You entered: " ++ show num)
-  putStrLn "Done."
-
 main :: IO ()
-main = hw7Main
+-- main = print (safeDivide 10 2 0)
+main = hw8Main
+
+oldMain :: IO ()
+oldMain = hw7Main
 
 _ = getLine >>= \name -> putStrLn ("Hello, " ++ name ++ "!")
 

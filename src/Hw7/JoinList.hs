@@ -1,6 +1,5 @@
-module Hw7.JoinList where
+module Hw7.JoinList () where
 
-import Hw7.Buffer
 import Hw7.Sized
 
 data JoinList m a
