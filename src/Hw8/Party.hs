@@ -2,9 +2,9 @@
 
 module Hw8.Party (glCons, moreFun, treeFold, nextLevel, hw8Main) where
 
+import Control.Monad (forM_)
 import Data.Tree
 import Hw8.Employee
-import Control.Monad (forM_)
 
 glCons :: Employee -> GuestList -> GuestList
 glCons e (GL es fun) = GL (e : es) (fun + empFun e)
@@ -29,7 +29,7 @@ maxFun = uncurry moreFun . treeFold nextLevel
 
 hw8Main :: IO ()
 hw8Main = do
-  company <- read <$> readFile "src/Hw8/company.txt" :: IO (Tree Employee)
+  company <- read <$> readFile "src/Hw8/company.txt"
   let (GL guests fun) = maxFun company
   putStrLn $ "Total fun: " ++ show fun
   forM_ guests (putStrLn . empName)
