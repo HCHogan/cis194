@@ -40,6 +40,7 @@ library
       Hw8
       Hw8.Employee
       Hw8.Party
+      Hw9.AParser
       Lib
       Parser
       StackVM
@@ -47,6 +48,7 @@ library
       T6
       T7
       T8
+      T9
   other-modules:
       Paths_cis194
   autogen-modules:
