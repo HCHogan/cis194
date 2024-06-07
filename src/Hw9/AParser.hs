@@ -1,7 +1,9 @@
+{-# OPTIONS_GHC -Wno-unused-top-binds #-}
 module Hw9.AParser () where
 
 import Control.Applicative
 
+import Control.Monad (void)
 import Data.Char
 
 -- A parser for a value of type a is a function which takes a String
@@ -70,12 +72,30 @@ instance Applicative Parser where
     return (f g, s'')
 
 type Name = String
-data Employee = Emp { name :: Name, phone :: String }
+data Employee = Emp {name :: Name, phone :: String}
 
-parseName :: Parser Name
+-- parseName :: Parser Name
 
-parsePhone :: Parser String
--- parseName = 
+-- parsePhone :: Parser String
+-- parseName =
 
+-- pattern: liftX :: Applicative f => (a -> b -> c -> d) -> f a -> b -> f c -> f d
+--          liftX h fa b fc = h <$> fa <*> pure b <*> fc
+-- _ = Emp <$> parseName <*> parsePhone
 
-_ = Emp <$> parseName <*> parsePhone
+abParser :: Parser (Char, Char)
+abParser = (,) <$> char 'a' <*> char 'b'
+
+abParser_ :: Parser ()
+abParser_ = void abParser
+
+intPair :: Parser [Integer]
+intPair = (\a _ b -> [a, b]) <$> posInt <*> char ' ' <*> posInt
+
+instance Alternative Parser where
+  empty = Parser $ const Nothing
+  p1 <|> p2 = Parser $ \s -> runParser p1 s <|> runParser p2 s
+
+intOrUppercase :: Parser ()
+intOrUppercase = void posInt <|> void (satisfy isUpper)
+
