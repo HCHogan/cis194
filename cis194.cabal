@@ -44,6 +44,7 @@ library
       Lib
       Parser
       StackVM
+      T11
       T4
       T6
       T7

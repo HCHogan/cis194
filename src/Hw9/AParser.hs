@@ -99,3 +99,6 @@ instance Alternative Parser where
 intOrUppercase :: Parser ()
 intOrUppercase = void posInt <|> void (satisfy isUpper)
 
+-- instance Applicative [] where
+--   pure a = [a]
+--   (f:fs) <*> as = (f <$> as) ++ (fs <*> as)
