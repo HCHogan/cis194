@@ -27,6 +27,8 @@ library
   exposed-modules:
       ExprT
       Fib
+      Hw11.AParser
+      Hw11.SExpr
       Hw4
       Hw5
       Hw6
