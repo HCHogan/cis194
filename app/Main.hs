@@ -3,9 +3,9 @@ module Main (main) where
 import Data.List (foldl')
 import Hw4 (foldTree)
 import Hw6 (test1, test2)
-import T6 (fuck)
 import Hw7 (hw7Main)
 import Hw8.Party (hw8Main)
+import T6 (fuck)
 
 sumtorial 0 = 0
 sumtorial n = n + sumtorial (n - 1)

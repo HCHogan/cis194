@@ -4,28 +4,28 @@
 
 module Hw11.SExpr where
 
-import Hw11.AParser
 import Control.Applicative
+import Data.Char (isAlpha, isAlphaNum)
+import Hw11.AParser
 
 ------------------------------------------------------------
 --  1. Parsing repetitions
 ------------------------------------------------------------
 
 zeroOrMore :: Parser a -> Parser [a]
-zeroOrMore p = undefined
+zeroOrMore p = oneOrMore p <|> pure []
 
 oneOrMore :: Parser a -> Parser [a]
-oneOrMore p = undefined
+oneOrMore p = (:) <$> p <*> zeroOrMore p
 
 ------------------------------------------------------------
 --  2. Utilities
 ------------------------------------------------------------
-
 spaces :: Parser String
-spaces = undefined
+spaces = zeroOrMore $ char ' '
 
 ident :: Parser String
-ident = undefined
+ident = (:) <$> satisfy isAlpha <*> zeroOrMore (satisfy isAlphaNum)
 
 ------------------------------------------------------------
 --  3. Parsing S-expressions
@@ -38,9 +38,19 @@ type Ident = String
 
 -- An "atom" is either an integer value or an identifier.
 data Atom = N Integer | I Ident
-  deriving Show
+  deriving (Show)
 
 -- An S-expression is either an atom, or a list of S-expressions.
-data SExpr = A Atom
-           | Comb [SExpr]
-  deriving Show
+data SExpr
+  = A Atom
+  | Comb [SExpr]
+  deriving (Show)
+
+parseAtom :: Parser Atom
+parseAtom = N <$> posInt <|> I <$> ident
+
+parseComb :: Parser [SExpr]
+parseComb = char '(' *> oneOrMore parseSExpr <* char ')'
+
+parseSExpr :: Parser SExpr
+parseSExpr = spaces *> (A <$> parseAtom <|> Comb <$> parseComb) <* spaces
