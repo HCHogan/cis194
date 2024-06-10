@@ -54,3 +54,5 @@ parseComb = char '(' *> oneOrMore parseSExpr <* char ')'
 
 parseSExpr :: Parser SExpr
 parseSExpr = spaces *> (A <$> parseAtom <|> Comb <$> parseComb) <* spaces
+
+

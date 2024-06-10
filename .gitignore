@@ -1,2 +1,25 @@
+# Cabal build directories
+dist/
+dist-newstyle/
+
+# Cabal configuration file
+cabal.project.local
+
+# Stack build directories
 .stack-work/
+
+# Haskell GHCi repl files
+.ghci
+
+# Haskell IDE (Hie) files
+.hie/
+.hie-bios/
+
+# Common editor and IDE directories
+/.idea
+/.vscode
+
+# Common OS-generated files
+*.swp
 *~
+.DS_Store

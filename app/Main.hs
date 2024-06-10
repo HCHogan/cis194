@@ -62,3 +62,6 @@ length' [] = 0
 length' (_ : xs) = 1 + length' xs
 
 _ = foldl' (const (1 +)) 0 [1, 2]
+
+maximumWealth :: [[Int]] -> Int
+maximumWealth s = maximum . map sum $ s
