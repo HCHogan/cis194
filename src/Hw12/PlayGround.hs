@@ -76,5 +76,5 @@ example = do
 test :: IO ()
 test = do
   let initialState = 0
-  let (result, finalState) = runMyState example initialState
+  let (result, _finalState) = runMyState example initialState
   putStrLn result
