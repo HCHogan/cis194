@@ -55,6 +55,7 @@ library
       T7
       T8
       T9
+      MTStepByStep
   other-modules:
       Paths_cis194
   autogen-modules:
@@ -63,10 +64,12 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
-    , containers >=0.6.7
-    , mtl >=2.3 && <3
-    , MonadRandom
+      base ^>=4.18.2.0,
+      mtl,
+      transformers,
+      containers,
+      MonadRandom
+
   default-language: Haskell2010
 
 executable cis194-exe
@@ -79,10 +82,11 @@ executable cis194-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , cis194
-    , containers >=0.6.7
-    , mtl >=2.3 && <3
+      base ^>=4.18.2.0,
+      mtl,
+      transformers,
+      containers,
+      cis194
   default-language: Haskell2010
 
 test-suite cis194-test
@@ -96,8 +100,9 @@ test-suite cis194-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
-    , cis194
-    , containers >=0.6.7
-    , mtl >=2.3 && <3
+      base ^>=4.18.2.0,
+      mtl,
+      transformers,
+      containers,
+      cis194
   default-language: Haskell2010
