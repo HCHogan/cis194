@@ -1,6 +1,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module MTStepByStep (runEval1, eval0, eval1, eval2b, eval2, runEval3, eval3, runEval4, eval4, runEval5, runEval6, eval6) where
+module MTStepByStep (runEval1, eval0, eval1, eval2b, eval2, runEval3, eval3, runEval4, eval4, runEval5, runEval6, eval6, test12) where
 
 import Control.Monad.Except (MonadError (throwError))
 import Control.Monad.Identity
@@ -218,5 +218,8 @@ eval6 (App e1 e2) = do
   case val1 of
     FunVal env' n body -> local (const (Map.insert n val2 env')) (eval6 body)
     _ -> throwError "type error in application"
+
+test12 :: (Int -> Bool) -> [Int] -> Bool
+test12 = any
 
 -- eval0 :: Env -> Exp -> Value

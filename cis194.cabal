@@ -64,7 +64,7 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base ^>=4.18.2.0,
+      base ^>=4.19.1.0,
       mtl,
       transformers,
       containers,
@@ -82,7 +82,7 @@ executable cis194-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base ^>=4.18.2.0,
+      base ^>=4.19.1.0,
       mtl,
       transformers,
       containers,
@@ -100,7 +100,7 @@ test-suite cis194-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base ^>=4.18.2.0,
+      base ^>=4.19.1.0,
       mtl,
       transformers,
       containers,
