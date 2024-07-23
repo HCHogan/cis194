@@ -56,6 +56,8 @@ library
       T8
       T9
       MTStepByStep
+      Folds
+      Travel
   other-modules:
       Paths_cis194
   autogen-modules:
