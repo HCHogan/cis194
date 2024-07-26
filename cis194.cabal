@@ -58,6 +58,7 @@ library
       MTStepByStep
       Folds
       Travel
+      Funct
   other-modules:
       Paths_cis194
   autogen-modules:
