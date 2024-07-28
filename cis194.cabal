@@ -59,6 +59,8 @@ library
       Folds
       Travel
       Funct
+      Monoi
+      Arrows
   other-modules:
       Paths_cis194
   autogen-modules:
@@ -71,7 +73,8 @@ library
       mtl,
       transformers,
       containers,
-      MonadRandom
+      MonadRandom,
+      random
 
   default-language: Haskell2010
 

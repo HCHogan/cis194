@@ -1,4 +1,5 @@
 module Travel where
+import Control.Applicative (Const(getConst, Const))
 
 -- We already have studied four of the five type classes in the Prelude
 -- that can be used for data structure manipulation: Functor, Applicative,
@@ -25,3 +26,7 @@ module Travel where
 
 testIO :: (a -> IO b) -> [a] -> IO [b]
 testIO = traverse
+
+foldMap' :: (Traversable t, Monoid c) => (a -> c) -> t a -> c
+foldMap' f = getConst . traverse (Const . f)
+-- from Applicative Const we can see clearly that applicative is indeed just a combination of contexts.
