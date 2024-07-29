@@ -45,5 +45,13 @@ runCircuit' :: Circuit a b -> [a] -> [b]
 runCircuit' cir inputs =
   snd $ mapAccumL unCircuit cir inputs
 
-accum' :: acc -> (a -> acc -> (b, acc)) -> Circuit a b
-accum' acc f = Circuit $ \input
+-- accumulator that outputs a value determined by the supplied function.
+accum :: acc -> (a -> acc -> (b, acc)) -> Circuit a b
+accum acc f = Circuit $ \input ->
+  let (output, acc') = f input acc
+   in (accum acc' f, output)
+
+accum' :: b -> (a -> b -> b) -> Circuit a b
+accum' acc f = accum acc (\a b -> let b' = f a b in (b', b'))
+
+

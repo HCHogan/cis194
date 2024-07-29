@@ -61,6 +61,8 @@ library
       Funct
       Monoi
       Arrows
+      Kinds
+      Linear
   other-modules:
       Paths_cis194
   autogen-modules:
