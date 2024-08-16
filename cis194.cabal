@@ -63,6 +63,7 @@ library
       Arrows
       Kinds
       Linear
+      Playground
   other-modules:
       Paths_cis194
   autogen-modules:

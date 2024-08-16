@@ -4,9 +4,6 @@
 
 module Linear where
 
-import System.Exit (exitFailure)
-import Text.Read (readMaybe)
-
 data Ur a where
   Ur :: a -> Ur a
 
