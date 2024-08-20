@@ -104,4 +104,5 @@ mean3 = proc value -> do
 
 -- Hangman: Pick a word
 generator :: (Random a) => (a, a) -> StdGen -> Circuit () a
-generator range rng = accum rng $ \() rng -> randomR range rng
+generator range rng = accum rng $ \() rng' -> randomR range rng'
+
